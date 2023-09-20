@@ -4,19 +4,24 @@
 
 using namespace std;
 
+struct banco
+{
+    string nome;
+    double salario;
+    int idade; 
+    int numFilho;
+    char sexo;
+};
+
 int main()
 {
     UINT CPAGE_UTF8 = 65001;
     UINT CPAGE_DEFAULT = GetConsoleOutputCP();
     SetConsoleOutputCP(CPAGE_UTF8);
 
-    string nome[10];
-    double salario[10];
-    int idade[10], numFilho[10];
-    char sexo[10];
-
+    banco b[10];
     double medSal = 0, medFil = 0, maior = 0;
-    int cont=0;
+    int cont = 0;
 
     // ofstream arquivo("banco.txt");
 
@@ -50,24 +55,14 @@ int main()
 
     for (int i = 0; i < 10; i++)
     {
-        arquivo >> nome[i];
-        arquivo >> salario[i];
-        medSal += salario[i];
-        if (maior <= salario[i])
-        {
-            maior = salario[i];
-        }
-        arquivo >> idade[i];
-        arquivo >> numFilho[i];
-        medFil += numFilho[i];
-        arquivo >> sexo[i];
-        if (sexo[i] == 'F' && salario[i]>1000)
-        {
-            cont++;
-        }
+        arquivo >> b[1].nome;
+        arquivo >> b[1].salario;
+        arquivo >> b[1].idade;
+        arquivo >> b[1].numFilho;
+        arquivo >> b[1].sexo;
     }
-
-    system("pause");
+        
+    
     arquivo.close();
 
     cout << ("Nome: ") << nome[0] << endl;
