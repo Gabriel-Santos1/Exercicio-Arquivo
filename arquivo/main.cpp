@@ -8,7 +8,7 @@ struct banco
 {
     string nome;
     double salario;
-    int idade; 
+    int idade;
     int numFilho;
     char sexo;
 };
@@ -55,19 +55,41 @@ int main()
 
     for (int i = 0; i < 10; i++)
     {
-        arquivo >> b[1].nome;
-        arquivo >> b[1].salario;
-        arquivo >> b[1].idade;
-        arquivo >> b[1].numFilho;
-        arquivo >> b[1].sexo;
+        arquivo >> b[i].nome;
+        arquivo >> b[i].salario;
+        arquivo >> b[i].idade;
+        arquivo >> b[i].numFilho;
+        arquivo >> b[i].sexo;
     }
-        
-    
+
     arquivo.close();
 
-    cout << ("Nome: ") << nome[0] << endl;
-    cout << ("Salario: ") << salario[1] << endl;
-    cout << ("Idade: ") << idade[3] << endl;
+    for (int i = 0; i < 10; i++)
+    {
+        medSal += b[i].salario;
+        medFil += b[i].numFilho;
+
+        if (b[i].salario > maior)
+        {
+            maior = b[i].salario;
+        }
+
+        if (b[i].sexo == 'F' & b[i].salario >= 1000)
+        {
+            cont++;
+        }
+    }
+    medSal /= 10;
+    medFil /= 10;
+    cont = (cont/5)*100;
+
+
+
+    cout << ("Média de sálario: ") << medSal << endl;
+    cout << ("Média dos filhos: ") << medFil << endl;
+    cout << ("O maior sálario : ") << maior << endl;
+    cout << ("Percentual      : ") << cont << endl;
+
 
     cout << endl
          << endl;
